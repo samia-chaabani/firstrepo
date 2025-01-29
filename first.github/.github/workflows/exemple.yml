@@ -1,0 +1,19 @@
+name: example-ci
+on: push
+jobs:
+   build:
+    runs-on: ubuntu-latest
+    steps:
+        - name: install cowsay program
+          run: sudo apt-get install cowsay-y
+        - name: Execute cowsay CMD
+          run : cowsay -f dragon "run for cover ,i am dragon ">>dragon.txt
+        - name: show files
+          run : cat dragon.txt 
+
+
+    deploy:
+        runs-on : ubuntu-latest
+        steps:
+        - name: show file 
+          run : cat dragon.txt
